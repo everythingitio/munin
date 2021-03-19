@@ -77,3 +77,8 @@ docker run \
  -v /data/munin/cache:/var/cache/munin \
  munin
 ```
+
+### Munin in Kubernetes
+
+* https://wiki.everythingit.io/index.php/Munin_Monitoring_Installation_in_Kubernetes
+
