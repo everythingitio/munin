@@ -14,7 +14,7 @@ Update base image (ubuntu 20.04) and munin (2.0.56) and add easily configurable 
 
 ```bash
 git clone https://github.com/everythingitio/munin.git
-docker build -t munin .
+docker build -t munin ./munin
 docker run -p 80 munin
 ```
 
@@ -58,7 +58,7 @@ docker run -p 80 everythingitio/munin:latest
 * `SLACKUSER`: Username of munin bot on your Slack
 * `SLACKICON`: Icon of munin bot on your Slack
 * `VIRTUAL_HOST`: FQDN of your munin website
-* `MUNIN_BASIC_AUTH_PASS`: Enable Basic Auth. User admin. Password (default: `SampleSE8uR3Dp488w0rd`)
+* `MUNIN_BASIC_AUTH_PASS`: Enable Basic Authentication. User is admin.
 
 ## Persistent example
 
@@ -68,9 +68,10 @@ docker run \
  --name=munin \
  -p 127.0.0.1:8080:80 \
  -e THISNODENAME="munin.example.com" \
- -e TZ="Europe/London" \
+ -e TZ="America/Chicago" \
  -e CRONDELAY=2 \
  -e NODES="anothernode.example.com:1.2.3.4 anothernode2.example.com:5.6.7.8" \
+ -e MUNIN_BASIC_AUTH_PASS="changeit" \ 
  -v /data/munin/db:/var/lib/munin \
  -v /data/munin/logs:/var/log/munin \
  -v /data/munin/cache:/var/cache/munin \

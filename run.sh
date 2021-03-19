@@ -3,7 +3,6 @@
 # enable basic auth
 if [[ -n "$MUNIN_BASIC_AUTH_PASS" ]] ; then
 
-MUNIN_BASIC_AUTH_PASS=${MUNIN_BASIC_AUTH_PASS:="SampleSE8uR3Dp488w0rd"}
 htpasswd -b -c /etc/munin/munin-htpasswd admin "$MUNIN_BASIC_AUTH_PASS"
 
 cat <<EOF >> /tmp/apache-auth.txt
